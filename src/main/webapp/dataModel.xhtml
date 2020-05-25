@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    QI Analyze is a Java EE framework for identifying and analyzing Quality Indicators
+    Copyright (C) 2010  QIAnalyze LLC http://www.qianalyze.org
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU
+    Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/
+
+-->
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <ui:define name="content">
+        <p>
+            In the late 1980's I was stationed at a Coast Guard Station in Frankfort Michigan. Multiple times a day we had Sailers and Hand Glider pilots
+            call asking about the weather. <br/>
+            The data model for this application was generated from the <a href="http://www.weather.gov/view/current_observation.xsd" target="blank">Current Observation xsd</a> of the 
+            <a href="http://w1.weather.gov/" target="blank">National Weather Service</a><br/>
+            This model was chosen because it is simple enough for everyone to understand, complex enough to generate a good model,
+            and provides a good chance for users to alter the code for their own preferences and location.
+        </p>
+        <p>The data for the xmlPayload for the test was pulled from <a href="http://w1.weather.gov/xml/current_obs/KFKS.xml" target="blank">http://w1.weather.gov/xml/current_obs/KFKS.xml</a></p>
+        <p>
+            <h:outputText styleClass="template_tip" value="The xsd file is placed in the src/main/resources/xsd folder where "/><a href="http://java.net/projects/hyperjaxb"  target="blank">HyperJaxb</a><h:outputText styleClass="template_tip" value=" will convert it to entity beans."/>
+        </p>
+        <p>
+            <h:outputText styleClass="template_tip" value="There are "/><a href="http://www.soapui.org/" target="blank">SoapUI</a><h:outputText styleClass="template_tip" value=" test that can be loaded from the file /src/test/soapUI/sample-soapui-project.xml"/>
+        </p>
+    </ui:define>
+
+</ui:composition>

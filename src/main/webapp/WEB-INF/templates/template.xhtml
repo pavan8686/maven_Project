@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!--
+
+    QI Analyze is a Java EE framework for identifying and analyzing Quality Indicators
+    Copyright (C) 2010  QIAnalyze LLC http://www.qianalyze.org
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU
+    Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/
+
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <title>pavan</title>
+    </h:head>
+
+    <h:body>
+        <p:layout fullPage="false" styleClass="template_layout">
+            <p:layoutUnit position="north" size="120" styleClass="template_header">
+                <a href="/pavan" ><img src="./resources/image/LOGO_QiAnalyzeExtended_RGB.jpg" height="100" /></a>
+            </p:layoutUnit>
+            <p:layoutUnit position="west">
+                <h:form>
+                    <p:menu >
+                        <p:menuitem value="Welcome" url="/"/>
+                    </p:menu>
+
+                    <p:menu >
+                        <p:menuitem value="Data Model"  url="/dataModel.xhtml"/>
+                    </p:menu>
+                    <p:menu >
+                        <p:menuitem value="Hang Gliding" url ="/hangGliding.xhtml"/>
+                    </p:menu>
+                    <p:menu >
+                        <p:menuitem value="Sailing" url="/sailing.xhtml"/>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <ui:insert name="content">Main Content</ui:insert>
+            </p:layoutUnit>
+            <p:layoutUnit position="south" size="30" styleClass="template_footer">
+                <h:outputText  value="Copyright &copy; 2012 QiAnalyze LLC. All rights reserved." />
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+
+</html>

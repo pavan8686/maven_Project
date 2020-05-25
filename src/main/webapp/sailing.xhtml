@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    QI Analyze is a Java EE framework for identifying and analyzing Quality Indicators
+    Copyright (C) 2010  QIAnalyze LLC http://www.qianalyze.org
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU
+    Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/
+
+-->
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/templates/template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <ui:define name="content">
+
+        <h:outputText styleClass="template_tip" value="Please create a page for each Quality Indicator within your Module. 
+                      These pages should clearly explain the purpose of the Indicator and what it is trying to measure."/>
+        <p>
+            Purpose of the Quality Indicator:<br/>
+            <ul>
+                <li>
+                    Measures the days that are good for a pleasurable sail on Betsie Bay and Lake Michigan. 
+                </li>
+            </ul>
+            Denominator Conditions:
+            <ol>
+                <li>True if Observation was from the sailing season April - October.</li>
+            </ol>
+            Numerator Conditions:<br/>
+            True if all the conditions are satisfied.
+            <ol>
+                <li>The Temperature must be greater the 50 degrees F.</li>
+                <li>Winds speed must be between 3 and 35 knots.</li>
+            </ol>
+            I know there are many other points of data such as wave height, precipitation etc... However, this is only an example. 
+        </p>
+        <p>To use this module please include this section in your SOAP request</p>
+        <pre>
+            &lt;Modules&gt;
+            .
+            .
+            .
+            &lt;Indicators Verbose="true"&gt;
+               &lt;Name&gt;sailing&lt;/Name&gt;
+            &lt;/Indicators&gt;
+            .
+            .
+            .
+            &lt;Modules&gt;
+        </pre>
+        <p>
+            <h:outputText styleClass="template_tip" value="The Denominator represents your target population, while the numerator indicate a Quality Event happened within the target population."/>
+        </p><h:outputText styleClass="template_tip" value="The source code for this Quality Indicator is actually a just a plain old java object (POJO)."/>
+
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    QI Analyze is a Java EE framework for identifying and analyzing Quality Indicators
+    Copyright (C) 2010  QIAnalyze LLC http://www.qianalyze.org
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU
+    Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/
+
+-->
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"                
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jstl/core"
+                template="./WEB-INF/templates/template.xhtml">
+
+    <ui:define name="content">
+
+        <h:outputText styleClass="template_tip" value="Please create a page for each Quality Indicator within your Module. 
+                      These pages should clearly explain the purpose of the Indicator and what it is trying to measure."/>
+        <p>
+            Purpose of the Quality Indicator:<br/>
+            <ul>
+                <li>
+                    Measures the days that are good for a Hang Gliding Empire Bluffs. 
+                </li>
+            </ul>
+            Denominator Conditions:
+            <ol>
+                <li>True the observation station was Frankfort, Michigan (KFKS)</li>
+            </ol>
+            Numerator Conditions:<br/>
+            True if all the conditions are satisfied.
+            <ol>
+                <li>Wind Speed between 20 and 40 mph</li>
+                <li>Wind Direction between 70 &amp; 110 degrees</li>
+            </ol>
+            I know there are many other points of data such as temperature, precipitation etc... However, this is only an example. 
+        </p>
+        <p>To use this module please include this section in your SOAP request</p>
+        <pre>
+            &lt;Modules&gt;
+            .
+            .
+            .
+            &lt;Indicators Verbose="true"&gt;
+               &lt;Name&gt;HangGlidingFrankfort.cdrl&lt;/Name&gt;
+            &lt;/Indicators&gt;
+            .
+            .
+            .
+            &lt;Modules&gt;
+        </pre>
+        <h:outputText styleClass="template_tip" value="NOTE: Because this is a Drools file the name is the name of the cdrl file, which is a compiled drools file."/>
+        <p>
+            <h:outputText styleClass="template_tip" value="The Denominator represents your target population, while the numerator indicate a Quality Event happened within the target population. "/>
+            <h:outputText styleClass="template_tip" value="The source code for this Quality Indicator is written in "/><a href="http://www.jboss.org/drools/" target="blank">JBoss Drools</a> <h:outputText styleClass="template_tip" value=" and located in the src/main/drools folder "/>
+        </p>
+        <p>To understand why they wanted to know the weather check out this video. </p>
+        <p>
+        <iframe src="http://player.vimeo.com/video/47757752" width="500" height="281" frameborder="0" webkitAllowFullScreen="mozallowfullscreen allowFullScreen"></iframe></p>
+        <p><a href="http://vimeo.com/47757752">Hang gliding Green Point, Michigan, Aug 5th / 2012</a> from <a href="http://vimeo.com/user9594620">Dwight Donaghue</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+        
+    </ui:define>
+</ui:composition>

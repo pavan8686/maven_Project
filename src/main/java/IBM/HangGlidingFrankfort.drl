@@ -1,0 +1,83 @@
+import generated.CurrentObservation;
+import org.qianalyze.api.indicator.IndicatorResult;
+import org.qianalyze.api.indicator.IndicatorObservation;
+
+rule "Not Frankfort Exception"
+        salience 100
+	when
+            i : CurrentObservation( stationId != "KFKS")
+            $result : IndicatorResult();
+	then
+            $result.setNumerator(Boolean.valueOf(false));
+            $result.setDenominator(Boolean.valueOf(false));
+            $result.setResult("False");
+            IndicatorObservation observation = new IndicatorObservation();
+            observation.setName("Wrong Location");
+            observation.setValue("This station isn't Frankfort it is " +  i.getLocation());
+            $result.getIndicatorObservations().add(observation);
+            drools.halt();                        
+end
+
+rule "Calm Winds Exception"
+        salience 90
+	when
+            i : CurrentObservation( windMph < 20)
+            $result : IndicatorResult();
+	then
+            $result.setNumerator(Boolean.valueOf(false));
+            $result.setDenominator(Boolean.valueOf(true));
+            $result.setResult("False");
+            IndicatorObservation observation = new IndicatorObservation();            
+            observation.setName("CalmWinds");
+            observation.setValue("The winds are not strong enough to fly in Frankfort.");
+            $result.getIndicatorObservations().add(observation);
+            drools.halt();            
+end
+
+rule "Strong Winds Exception"
+        salience 80
+	when
+            i : CurrentObservation( windMph > 40)
+            $result : IndicatorResult();
+	then
+            $result.setNumerator(Boolean.valueOf(false));
+            $result.setDenominator(Boolean.valueOf(true));
+            $result.setResult("False");
+            IndicatorObservation observation = new IndicatorObservation();
+            observation.setName("Wrong Location");
+            observation.setValue("The winds are too strong to fly safely");
+            $result.getIndicatorObservations().add(observation);       
+            drools.halt();     
+end
+
+rule "Wrong Wind Direction Exception"
+        salience 70
+	when
+            i : CurrentObservation( windDegrees < 70 || > 110)
+            $result : IndicatorResult();
+	then
+            $result.setNumerator(Boolean.valueOf(false));
+            $result.setDenominator(Boolean.valueOf(true));
+            $result.setResult("False");
+            IndicatorObservation observation = new IndicatorObservation();            
+            observation.setName("CalmWinds");
+            observation.setValue("The wind is from " + i.getWindDir() + " and isn't out of the west." );
+            $result.getIndicatorObservations().add(observation);             
+            drools.halt();
+end
+
+rule "Perfect Day"
+        salience 60
+	when
+	        i : CurrentObservation()
+            $result : IndicatorResult();
+	then
+            $result.setNumerator(Boolean.valueOf(false));
+            $result.setDenominator(Boolean.valueOf(true));
+			$result.setResult("True");
+	 		IndicatorObservation observation = new IndicatorObservation();        
+            observation.setName("Great Day to fly");
+            observation.setValue("Go Fly today it promises to be great! ");
+            $result.getIndicatorObservations().add(observation);            
+            drools.halt();
+end

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- QI Analyze is a Java EE framework for identifying and analyzing Quality 
+	Indicators Copyright (C) 2010 QIAnalyze LLC http://www.qianalyze.org This 
+	program is free software: you can redistribute it and/or modify it under 
+	the terms of the GNU Affero General Public License as published by the Free 
+	Software Foundation, either version 3 of the License, or (at your option) 
+	any later version. This program is distributed in the hope that it will be 
+	useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+	or FITNESS FOR A PARTICULAR PURPOSE.See the GNU Affero General Public License 
+	for more details. You should have received a copy of the GNU Affero General 
+	Public License along with this program. If not, see http://www.gnu.org/licenses/ -->
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+	<jdbc-connection-pool allow-non-component-callers="false"
+		associate-with-thread="false" connection-creation-retry-attempts="0"
+		connection-creation-retry-interval-in-seconds="10"
+		connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0"
+		connection-validation-method="auto-commit"
+		datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+		fail-all-connections="false" idle-timeout-in-seconds="300"
+		is-connection-validation-required="false"
+		is-isolation-level-guaranteed="true" lazy-connection-association="false"
+		lazy-connection-enlistment="false" match-connections="false"
+		max-connection-usage-count="0" max-pool-size="32"
+		max-wait-time-in-millis="60000" name="mysql_QiAnalyzeDB_rootPool"
+		non-transactional-connections="false" pool-resize-quantity="2"
+		res-type="javax.sql.DataSource" statement-timeout-in-seconds="-1"
+		steady-pool-size="8" validate-atmost-once-period-in-seconds="0"
+		wrap-jdbc-objects="false">
+		<property name="serverName" value="localhost" />
+		<property name="portNumber" value="3306" />
+		<property name="databaseName" value="QiAnalyzeDB" />
+		<property name="User" value="qiuser" />
+		<property name="Password" value="qipass" />
+		<property name="URL" value="jdbc:mysql://localhost:3306/QiAnalyzeDB" />
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+	</jdbc-connection-pool>
+	<jdbc-resource enabled="true" jndi-name="QiAnalyzeDB"
+		object-type="user" pool-name="MySQLPool" />
+</resources>
